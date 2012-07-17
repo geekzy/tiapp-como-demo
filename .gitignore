@@ -9,3 +9,4 @@ build.log
 *.class
 *.pyc
 *.pyo
+.settings/
