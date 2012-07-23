@@ -62,26 +62,26 @@ module.exports = function (Como) {
         choose = Como.applyAction('Try/doChoose');
 
     // listen to tap event
-    btnTest.tap('Try/doSave', btnTest.getHeight());
-    btnChoose.tap(function () {
-        optDlg.click(true, choose);
+    btnTest.on('tap', 'Try/doSave', btnTest.getHeight());
+    btnChoose.on('tap', function () {
+        optDlg.on('click', true, choose);
         optDlg.show();
     });
-    btnAjax.tap('Test/doAjax');
-    btnDownload.tap('Try/doDownload', progress);
-    btnCheckOnline.tap('Try/doCheckOnline');
+    btnAjax.on('tap', 'Test/doAjax');
+    btnDownload.on('tap', 'Try/doDownload', progress);
+    btnCheckOnline.on('tap', 'Try/doCheckOnline');
 
-    // listen to click event
+    // listen to click event [backwards compatible]
     btnLogin.click('Test/showLogin');
 
-    // listen to swipq event
-    scrolly.swipe('Try/doSwipe');
+    // listen to swipe event
+    scrolly.on('swipe', 'Try/doSwipe');
 
     // listen to taphold event
-    scrolly.taphold(function (e) {
+    scrolly.on('taphold', function (e) {
         // prevent event bubbling from children's tap event
         if (e.source === scrolly) {
-            Ti.API.info('Window Tapped!');
+            Ti.API.info('Window Tap Hold!');
             // fire custom event
             var x = Math.round(Math.random()) === 1;
             scrolly.fireEvent('winTap', {p1: x ? 'xxx' : 'yyy'});
