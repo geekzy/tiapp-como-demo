@@ -91,15 +91,11 @@ module.exports = function (Como) {
     // listen to custom event
     scrolly.addEventListener('winTap', Como.applyAction('Try/doManual', 'x', 1, true));
 
-    // add ui to a container
-    scrolly.add(btnTest);
-    scrolly.add(btnLogin);
-    scrolly.add(btnChoose);
-    scrolly.add(btnAjax);
-    scrolly.add(lblSwipe);
-    scrolly.add(btnDownload);
-    scrolly.add(btnCheckOnline);
-    scrolly.add(progress);
+    // add elements into view
+    scrolly.addAll([btnTest, btnLogin, btnChoose, btnAjax,
+        lblSwipe, btnDownload, btnCheckOnline, progress]);
+
+    Ti.API.info(scrolly.children);
     // add container to window
     self.add(scrolly);
 

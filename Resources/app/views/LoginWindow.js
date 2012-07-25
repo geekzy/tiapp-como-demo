@@ -47,9 +47,7 @@ module.exports = function (Como, trigBtn) {
     // no logged in user
     if (User.count() === 0) {
         // add form elements into view
-        scrolly.add(userInText);
-        scrolly.add(passInText);
-        scrolly.add(loginBtn);
+        scrolly.addAll([userInText, passInText, loginBtn]);
     }
     // got user
     else {
