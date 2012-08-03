@@ -6,7 +6,5 @@ tmp
 .fastdev.lock
 build/
 build.log
-*.class
-*.pyc
-*.pyo
 .settings/
+.svn/
